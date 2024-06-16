@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./styles/variables.css";
-/* @import "./styles/theme-overrides.scss"; */
+@import "./styles/theme-overrides.css";
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 
@@ -45,6 +45,9 @@ app-root{
 }
 .gap-2{
     gap: 2rem;
+}
+.gap-5{
+    gap: 5rem;
 }
 .space-between {
   justify-content: space-between;
