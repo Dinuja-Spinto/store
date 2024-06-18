@@ -32,6 +32,18 @@ export class HomeComponent {
     });
   }
 
+  editProduct(product: Product){
+    console.log(product, 'edit');
+  }
+
+  deleteProduct(product: Product){
+    console.log(product, 'delete');
+  }
+
+  addProduct(product: Product){
+    console.log(product, 'add');
+  }
+
   ngOnInit(){
     this.fetchProducts(0, this.rows);
   }
