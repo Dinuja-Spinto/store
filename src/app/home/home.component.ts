@@ -4,11 +4,12 @@ import { Product, Products } from '../../type';
 import { ProductComponent } from '../components/product/product.component';
 import { CommonModule } from '@angular/common';
 import { PaginatorModule } from 'primeng/paginator';
+import { EditPopupComponent } from '../components/edit-popup/edit-popup.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ProductComponent, CommonModule, PaginatorModule],
+  imports: [ProductComponent, CommonModule, PaginatorModule, EditPopupComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -20,6 +21,8 @@ export class HomeComponent {
   products: Product[] = [];
   totalRecords: number = 0;
   rows: number = 5;
+  displayEditPopup: boolean = false;
+  displayAddProduct: boolean = false;
   onPageChange(event: any){
     this.fetchProducts(event.page, event.rows);
   }
