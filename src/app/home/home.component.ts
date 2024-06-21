@@ -24,6 +24,15 @@ export class HomeComponent {
   displayEditPopup: boolean = false;
   displayAddPopup: boolean = false;
 
+  toggleEditPopup(product: Product){
+    this.selectedProduct = product;
+    this.displayEditPopup = true;
+  }
+
+  toggleAddPopup(){
+    this.displayAddPopup = true;
+  }
+
   selectedProduct: Product = {
     id:0,
     name: '',
