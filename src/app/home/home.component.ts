@@ -5,11 +5,12 @@ import { ProductComponent } from '../components/product/product.component';
 import { CommonModule } from '@angular/common';
 import { PaginatorModule } from 'primeng/paginator';
 import { EditPopupComponent } from '../components/edit-popup/edit-popup.component';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ProductComponent, CommonModule, PaginatorModule, EditPopupComponent],
+  imports: [ProductComponent, CommonModule, PaginatorModule, EditPopupComponent, ButtonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -31,6 +32,10 @@ export class HomeComponent {
 
   toggleAddPopup(){
     this.displayAddPopup = true;
+  }
+
+  toggleDeletePopup(product: Product){
+
   }
 
   selectedProduct: Product = {
