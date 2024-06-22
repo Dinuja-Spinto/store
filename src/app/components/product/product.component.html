@@ -1,4 +1,4 @@
-<div class="column gap-5 wrapper">
+<div class="column gap-2 wrapper">
   <img [src]="product.image" alt="Prduct Thambnail" />
   <h2 class="title">{{ product.name }}</h2>
   <div class="row">
@@ -7,7 +7,7 @@
   </div>
   <p-rating [(ngModel)]="product.rating" [readonly]="true" iconCancelClass="hidden">
   </p-rating>
-  <div class="row gap-5">
+  <div class="row gap-1">
     <button type="button" pButton icon="pi pi-pencil" (click)="editProduct()" label="Edit"></button>
     <button type="button" pButton icon="pi pi-trash" class="p-button-danger" (click)="confirmDelete()" label="Delete" #deleteButton></button>
   </div>
