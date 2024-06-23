@@ -2,14 +2,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DialogModule } from 'primeng/dialog';
 import { CommonModule } from '@angular/common';
 import { Product } from '../../../type';
-import { FormsModule, FormBuilder } from '@angular/forms';
+import { FormsModule, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RatingModule } from 'primeng/rating';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-edit-popup',
   standalone: true,
-  imports: [DialogModule, CommonModule, FormsModule, RatingModule, ButtonModule],
+  imports: [DialogModule, CommonModule, FormsModule, RatingModule, ButtonModule, ReactiveFormsModule],
   templateUrl: './edit-popup.component.html',
   styleUrl: './edit-popup.component.css'
 })
@@ -26,10 +26,27 @@ export class EditPopupComponent {
     rating:0
   };
 
+  productForm = this.formBuilder.group({
+    name: ['', [Validators.required]],
+    image:[''],
+    price:['', [Validators.required]],
+    rating:[0]
+  });
+
   @Output() confirm = new EventEmitter<Product>();
 
+  ngOnChanges(){
+    this.productForm.patchValue(this.product);
+  }
+
   onConfirm(){
-    this.confirm.emit(this.product);
+    const {name, image, price, rating} = this.productForm.value;
+    this.confirm.emit({
+      name: name || '',
+      image: image || '',
+      price: price || '',
+      rating: rating || 0,
+    });
     this.display = false;
     this.displayChange.emit(this.display);
   }
